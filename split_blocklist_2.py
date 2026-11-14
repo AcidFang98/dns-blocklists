@@ -3,7 +3,7 @@ from urllib.request import urlopen
 
 url = (
     "https://raw.githubusercontent.com/AcidFang98/dns-blocklists/"
-    "refs/heads/main/wildcard/multi-onlydomains.txt.txt"
+    "refs/heads/main/wildcard/multi-onlydomains.txt"
 )
 output_dir = Path("wildcard/multi-onlydomains.parts")
 limit = 100_000
