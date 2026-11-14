@@ -1,4 +1,4 @@
-name: Split split multi-onlydomains blocklist
+name: Split multi-onlydomains blocklist
 
 on:
   workflow_dispatch:
