@@ -1,4 +1,4 @@
-name: Split tif.mini-onlydomains blocklist
+name: Split split multi-onlydomains blocklist
 
 on:
   workflow_dispatch:
