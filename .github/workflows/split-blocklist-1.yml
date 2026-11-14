@@ -1,0 +1,28 @@
+name: Split tif.mini-onlydomains blocklist
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Split the blocklist
+        run: python3 split_blocklist.py
+
+      - name: Commit updated parts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add wildcard/tif.mini-onlydomains.parts/
+          if ! git diff --cached --quiet; then
+            git commit -m "Update split tif.mini-onlydomains blocklist"
+            git push
+          fi
